@@ -1,12 +1,12 @@
 #!/bin/bash
 #
-
+# Installing a single node cluster with kubeadm via procedure as found on 
+# https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/
+#
 echo 'Installing kubernetes with kubeadm' && \
 echo 'Adding google apt key' && curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add - && \
 echo 'Adding kubernetes repo'
-
 echo 'deb http://apt.kubernetes.io/ kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
-
 echo 'Updateing apt cache' && apt-get update && \
 echo 'Installing kubelet, kubadm, kubectl' && apt-get install -y kubelet kubeadm kubectl && \
 echo 'Hold kubelet, kubeadm, kubectl versions' && apt-mark hold kubelet kubeadm kubectl && \
@@ -19,6 +19,6 @@ echo 'Creating .kube/config' && \
 mkdir -p ${HOME}/.kube && \
 sudo cp -i /etc/kubernetes/admin.conf ${HOME}/.kube/config && \
 sudo chown $(id -u):$(id -g) ${HOME}/.kube/config && \
+echo 'Enabling master to run workload' && kubectl taint nodes --all node-role.kubernetes.io/master-
 echo 'Installing calico rbac' && kubectl apply -f https://docs.projectcalico.org/v3.1/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml && \
 echo 'Installing calico' && kubectl apply -f https://docs.projectcalico.org/v3.1/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml
-
