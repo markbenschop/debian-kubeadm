@@ -8,7 +8,7 @@ echo 'Adding google apt key' && curl -s https://packages.cloud.google.com/apt/do
 echo 'Adding kubernetes repo'
 echo 'deb http://apt.kubernetes.io/ kubernetes-xenial main' > /etc/apt/sources.list.d/kubernetes.list
 echo 'Updateing apt cache' && apt-get update && \
-echo 'Installing kubelet, kubadm, kubectl' && apt-get install -y kubelet kubeadm kubectl && \
+echo 'Installing kubelet, kubadm, kubectl' && apt-get install -y kubelet=1.11.3-00 kubeadm=1.11.3-00 kubectl=1.11.3-00 && \
 echo 'Hold kubelet, kubeadm, kubectl versions' && apt-mark hold kubelet kubeadm kubectl && \
 echo 'Disabling swap' && swapoff -a && \
 echo 'Saving /etc/fstab to /etc/fstab.old' && cp /etc/fstab /etc/fstab.old && \
