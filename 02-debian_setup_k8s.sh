@@ -12,7 +12,7 @@ echo 'Installing kubelet, kubadm, kubectl' && apt-get install -y kubelet=1.11.3-
 echo 'Hold kubelet, kubeadm, kubectl versions' && apt-mark hold kubelet kubeadm kubectl && \
 echo 'Disabling swap' && swapoff -a && \
 echo 'Saving /etc/fstab to /etc/fstab.old' && cp /etc/fstab /etc/fstab.old && \
-echo 'Generating new fstab' && cat /etc/fstab | awk '/swap/ {sub("^","#"); print}' > /etc/fstab.new
+echo 'Generating new fstab' && cat /etc/fstab | grep -v swap > /etc/fstab.new
 echo 'Moving new fstab in place' && mv /etc/fstab.new /etc/fstab && \
 echo 'Setting up kubernetes with kubeadm' && kubeadm init --pod-network-cidr=192.168.0.0/16 && \
 echo 'Creating .kube/config' && \
