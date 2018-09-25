@@ -20,12 +20,10 @@ fi
 echo "user is $user"
 # exit 0  
 
-echo 'Installing sudo' && apt-get install sudo && \
+echo 'Installing packages' && apt-get install -y sudo vim git curl && \
 echo "Adding $user to sudo group" && usermod -a -G  sudo $user && \
-echo 'Instaling vim' && apt-get install -y vim && \
 echo 'Removing nano' && apt-get -y remove --purge nano && \
 echo 'Configuring sudo to NOPASSWD for sudo group' && \
-echo 'Installing git' && apt-get install -y git && \
 
 cat <<EOF > /etc/sudoers
 #
