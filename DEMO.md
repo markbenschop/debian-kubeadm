@@ -33,8 +33,8 @@ To setup k8s using kubeadm
 
     ./02-debian_setup_k8s_flannel.sh
 
-After this scripts is finished you can check with 'kubectl get pods --all-namespaces' if k8s is running.
-After a minute or 2 you should see some pods with status 'Running'.
+After this scripts is finished you can check with 'kubectl get pods --all-namespaces' if k8s is running.  
+After a minute or 2 you should see about 8 pods with status 'Running'.
 
 To install prometheus into the k8s cluster run 
 
