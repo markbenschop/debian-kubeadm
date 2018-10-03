@@ -13,17 +13,17 @@ Log in to the vm with your user account.
 Su to root
 Install git
 
-   apt-get install -y git
+    apt-get install -y git
 
 To configure the vm clone this git repository
 
-   git clone https://github.com/markbenschop/debian-kubeadm.git
+    git clone https://github.com/markbenschop/debian-kubeadm.git
 
 cd into the debian-kubeadm directory and run the following scripts.
 
 To install some software and setup your user for passwordless sudo
 
-    00-debian_setup.sh ${username}
+    ./00-debian_setup.sh ${username}
 
 To install docker (in a slightly older version is supported with k8s)
 
@@ -31,10 +31,13 @@ To install docker (in a slightly older version is supported with k8s)
 
 To setup k8s using kubeadm
 
-    ./02-debian_setup_k8s.sh
+    ./02-debian_setup_k8s_flannel.sh
 
-After this scripts is finished you can check with 'kubectl get pods --all-namespaces' if k8s is running.
-After a minute or 2 you should see some pods with status 'Running'.
+After this scripts is finished you can check if k8s is running with  
+
+    kubectl get pods --all-namespaces
+  
+After a minute or 2 you should see about 8 pods with status 'Running'.
 
 To install prometheus into the k8s cluster run 
 
