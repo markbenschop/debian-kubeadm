@@ -1,12 +1,5 @@
 # Demo steps
-
-# Setup a Debian 9 vm and install k8s
-
-## Setup a vm
-With 2 cpu's, 2gb memory and about 15Gb disk.
-
-## Install vm
-Install a debian 9 vm with an administrative user, e.g. username
+Install a debian 9 vm as per instuctions.
 
 ## Configure the vm and install k8s
 Log in to the vm with your user account.
