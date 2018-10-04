@@ -37,7 +37,7 @@ or
 
 After this scripts is finished you can check if k8s is running with  
 
-    kubectl get pods --all-namespaces
+    watch -n 4 kubectl get pods --all-namespaces
   
 After a minute or 2 you should see about 8 pods with status 'Running'.
 
