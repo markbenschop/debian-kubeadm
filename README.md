@@ -41,10 +41,14 @@ After this scripts is finished you can check if k8s is running with
   
 After a minute or 2 you should see about 8 pods with status 'Running'.
 
+# Prometheus
+
 To install prometheus into the k8s cluster run 
 
     ./03-prometheus.sh
 
-Check what is going on with 'kubectl get pods --all-namespaces'. After a few minutes all pods should be running.
+After a few minutes all pods should be running. Check what is going on with 
+
+    watch -n 4 kubectl get pods --all-namespaces
 
 
