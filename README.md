@@ -8,7 +8,7 @@ The scripts will quickly install docker and set up a kubernetes master that can 
 # Use 
 
     00-debian_setup.sh ${username}
-
+ 
 
     01-debian_install_docker.sh
 
