@@ -1,4 +1,5 @@
-# Demo steps
+# Setup a k8s environment on a Debian 9 vm.
+
 Install a debian 9 vm as per instructions in docs/00-INSTALL_DEBIAN_VM.md or use an existing one.
 
 
