@@ -25,7 +25,8 @@ To install docker (in a slightly older version is supported with k8s)
 
 
 
-Depending whether you want to use flannel or calico network cni
+Depending whether you want to use flannel or calico network cni.
+Flannel is usually fine. It is simple and uses little resources.
 
     ./02-k8s_setup_flannel.sh
  
