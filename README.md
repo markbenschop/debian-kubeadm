@@ -1,26 +1,55 @@
-# debian-kubeadm
-Scripts to install k8s on a debian system for quick k8s tests
+# Demo steps
+Install a debian 9 vm as per instructions in docs/00-INSTALL_DEBIAN_VM.md or use an existing one.
 
-For personal use so *not for any type of production use* !!!!
+## Configure the vm and install k8s
+Log in to the vm with your user account.
+Su to root
+Install git
 
-The scripts will quickly install docker and set up a kubernetes master that can run containers.
+    apt-get install -y git
 
-# Use 
+To configure the vm clone this git repository
 
-    00-debian_setup.sh ${username}
- 
+    git clone https://github.com/markbenschop/debian-kubeadm.git
 
-    01-debian_install_docker.sh
+cd into the debian-kubeadm directory and run the following scripts.
 
-Depending if you want to use flannel or calico network cni choose :
+To install some software and setup your user for passwordless sudo
 
-    02-k8s_setup_flannel.sh
+    ./00-debian_setup.sh ${username}
 
-or
+To install docker (in a slightly older version is supported with k8s)
 
-    02-k8s_setup_calico.sh
+    ./01-debian_install_docker.sh
 
-To setup prometheus
+To setup k8s using kubeadm
 
-    03-prometheus.sh
+    ./02-debian_setup_k8s_flannel.sh
 
+After this scripts is finished you can check if k8s is running with  
+
+    kubectl get pods --all-namespaces
+  
+After a minute or 2 you should see about 8 pods with status 'Running'.
+
+To install prometheus into the k8s cluster run 
+
+    ./03-prometheus.sh
+
+Check what is going on with 'kubectl get pods --all-namespaces'. After a few minutes all pods should be running.
+
+
+############### TODO : connect met prometheus
+
+
+# Run demo with flask-demo container
+
+## Clone git repository
+Clone this git repository
+   git clone https://github.com/markbenschop/flask-demo.git
+
+## Run
+
+
+# Install prometheus
+Run the 
