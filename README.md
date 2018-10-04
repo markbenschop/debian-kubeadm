@@ -27,11 +27,11 @@ To install docker (in a slightly older version is supported with k8s)
 
 Depending whether you want to use flannel or calico network cni
 
-   ./02-k8s_setup_flannel.sh
+    ./02-k8s_setup_flannel.sh
  
 or
 
-   ./02-k8s-setup-calico.sh
+    ./02-k8s-setup-calico.sh
 
 
 After this scripts is finished you can check if k8s is running with  
