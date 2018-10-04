@@ -1,7 +1,8 @@
 # Setup a k8s environment on a Debian 9 vm.
 
 Install a debian 9 vm as per instructions in docs/00-INSTALL_DEBIAN_VM.md or use an existing one.
-
+Please note that the vm needs 2048 mb mem and preferrably 2 cpu's.
+For testing with Prometheus and extra 1024 mb is needed.
 
 ## Configure the vm and install k8s
 Log in to the vm with your user account.
