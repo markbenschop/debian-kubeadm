@@ -1,4 +1,3 @@
-
 #!/bin/bash
 
 # https://docs.traefik.io/user-guide/kubernetes/
