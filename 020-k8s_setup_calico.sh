@@ -9,5 +9,4 @@ mkdir -p ${HOME}/.kube && \
 sudo cp -i /etc/kubernetes/admin.conf ${HOME}/.kube/config && \
 sudo chown $(id -u):$(id -g) ${HOME}/.kube/config && \
 echo 'Enabling master to run workload' && kubectl taint nodes --all node-role.kubernetes.io/master-
-echo 'Installing calico rbac' && kubectl apply -f https://docs.projectcalico.org/v3.1/getting-started/kubernetes/installation/hosted/rbac-kdd.yaml && \
-echo 'Installing calico' && kubectl apply -f https://docs.projectcalico.org/v3.1/getting-started/kubernetes/installation/hosted/kubernetes-datastore/calico-networking/1.7/calico.yaml
+echo 'Installing calico' && kubectl apply -f https://docs.projectcalico.org/v3.11/manifests/calico.yaml 
